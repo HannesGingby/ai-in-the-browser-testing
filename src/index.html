@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AI in the browser testing</title>
-    </head>
-    <body>
-        
-    </body>
-    <script type="module">
-        import wllamawllama from 'https://cdn.jsdelivr.net/npm/@wllama/wllama@1.17.0/+esm'
-    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>llama in the Browser</title>
+    <style>
+        body {
+          font-family: system-ui, -apple-system, sans-serif;
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          line-height: 1.6;
+        }
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        textarea {
+          width: 100%;
+          height: 100px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+        }
+
+        button {
+          padding: 10px 20px;
+          background-color: #0066cc;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+
+        button:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+
+        #output {
+          white-space: pre-wrap;
+          padding: 15px;
+          background-color: #f5f5f5;
+          border-radius: 4px;
+          min-height: 100px;
+        }
+
+        #progress {
+          color: #666;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>llama in the Browser</h1>
+    <div>
+      <p>Status: <span id="status">Loading Wllama...</span></p>
+      <p id="progress"></p>
+    </div>
+    <div>
+      <textarea id="input" placeholder="Enter your prompt here..." disabled></textarea>
+    </div>
+    <div>
+      <button id="generate" disabled>Generate</button>
+    </div>
+    <div id="output"></div>
+  </div>
+
+  <script type="module" src="./script.js"></script>
+</body>
 </html>
